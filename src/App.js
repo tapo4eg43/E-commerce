@@ -1,17 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
 import {Component} from 'react';
+import HomePage from './homepage';
 
-export default class App extends Component {
-    constructor() {
-        super();
-    }
-
-    render() {
-        return (
-          <>
-          </>
-        )
-    }
+export default function App() {
+    return <div>
+        <HomePage/>
+    </div>
 }
-
