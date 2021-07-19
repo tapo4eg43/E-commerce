@@ -16,22 +16,26 @@ export default class SignUp extends Component {
             email: '',
             password: '',
             confirmPassword: ''
-        }
+        };
     }
 
     handleSubmit = async event => {
         event.preventDefault();
 
-        const {displayName, email, password, confirmPassword} = this.state;
+        const { displayName, email, password, confirmPassword } = this.state;
 
-        if(password !== confirmPassword) {
+        if (password !== confirmPassword) {
             alert("passwords don't match");
             return;
         }
-        try {
-            const {user} = await auth.createUserWithEmailAndPassword(email, password);
 
-            await createUserProfileDocument(user, {displayName})
+        try {
+            const { user } = await auth.createUserWithEmailAndPassword(
+                email,
+                password
+            );
+
+            await createUserProfileDocument(user, { displayName });
 
             this.setState({
                 displayName: '',
@@ -45,13 +49,13 @@ export default class SignUp extends Component {
     };
 
     handleChange = event => {
-        const {name, value} = event.target;
+        const { name, value } = event.target;
 
-        this.setState({[name]: value});
-    }
+        this.setState({ [name]: value });
+    };
 
     render() {
-        const {displayName, email, password, confirmPassword} = this.state;
+        const { displayName, email, password, confirmPassword } = this.state;
         return (
             <div className='sign-up'>
                 <h2 className='title'>I do not have a account</h2>
